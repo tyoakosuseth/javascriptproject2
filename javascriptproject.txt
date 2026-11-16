@@ -1,0 +1,166 @@
+BLOCKFUSE LABS
+
+TASK D —
+
+
+Test 1: Registered Customer with Sufficient Airtime
+
+Inputs:
+customerName = "Seth";
+isRegistered = true;
+airtimeBalance = 2000;
+selectedBundle = 2;
+
+
+Expected Output:
+Purchase Successful!
+Customer Name: Seth
+Bundle: 1GB
+Amount Deducted: 350
+Remaining Balance: 1650
+
+
+Actual Output:
+Purchase Successful!
+Customer Name: Seth
+Bundle: 1GB
+Amount Deducted: 350
+Remaining Balance: 1650
+
+Explanation:
+The customer is registered, and choose a selected bundle, and has enough airtime. Which means he can purchase
+
+Test 2: Registered Customer with Insufficient Airtime
+Inputs:
+customerName = "Seth";
+isRegistered = true;
+airtimeBalance = 200;
+selectedBundle = 2;
+
+
+Expected Output:
+Purchase rejected: Insufficient airtime
+
+
+Actual Output:
+Purchase rejected: Insufficient airtime
+
+Explanation:
+The customer has ₦200, and bundle code 2 costs ₦350. Since the airtime is less than the bundle price, the purchase is rejected.
+
+Test 3: Unregistered Customer with Sufficient Airtime
+Inputs:
+customerName = "John";
+isRegistered = false;
+airtimeBalance = 2000;
+selectedBundle = 2;
+
+
+Expected Output:
+Purchase rejected: Customer is not registered
+
+
+Actual Output:
+Purchase rejected: Customer is not registered
+
+Explanation:
+The customer has enough airtime but is not registered. Registration is required, so the purchase is rejected.
+
+Test 4: Invalid Bundle Code
+Inputs:
+customerName = "Seth";
+isRegistered = true;
+airtimeBalance = 2000;
+selectedBundle = 9;
+
+
+Expected Output:
+Invalid bundle code
+Purchase rejected: Invalid bundle
+
+
+Actual Output:
+Invalid bundle code
+Purchase rejected: Invalid bundle
+
+
+Explanation:
+Bundle code 9 is not among the available bundle options. The program identifies it as invalid and prevents the purchase.
+
+Test 5: Airtime Balance Exactly Equals Bundle Price
+Inputs:
+customerName = "Seth";
+isRegistered = true;
+airtimeBalance = 600;
+selectedBundle = 3;
+
+
+Expected Output:
+Purchase Successful!
+Customer Name: Seth
+Bundle: 2GB
+Amount Deducted: 600
+Remaining Balance: 0
+
+
+Actual Output:
+Purchase Successful!
+Customer Name: Seth
+Bundle: 2GB
+Amount Deducted: 600
+Remaining Balance: 0
+
+
+Explanation:
+The customer has exactly ₦600, which is the price of bundle code 3. Since the balance is equal to the bundle price, the purchase is successful.
+
+Test 6: Negative Airtime Balance
+Inputs:
+customerName = "Seth";
+isRegistered = true;
+airtimeBalance = -100;
+selectedBundle = 2;
+
+
+Expected Output:
+Invalid airtime balance
+
+
+Actual Output:
+Invalid airtime balance
+
+Explanation:
+The customer's airtime balance is negative. A negative balance is invalid, so the program rejects the purchase.
+
+Test 7: Additional Test Case — Zero Airtime Balance
+Inputs:
+customerName = "Seth";
+isRegistered = true;
+airtimeBalance = 0;
+selectedBundle = 1;
+
+
+Expected Output:
+Purchase rejected: Insufficient airtime
+
+
+Actual Output:
+Purchase rejected: Insufficient airtime
+
+Explanation:
+The customer has ₦0, while bundle code 1 costs ₦200. Since zero is less than ₦200, the customer does not have enough airtime to purchase the bundle.
+
+TASK E 
+Question 1: 
+Answer:
+The selected bundle must be validated first to ensure that the customer choose a valid bundle. This reduces errors like subtracting money from a balance that does not exsist.
+
+Question 2: 
+Answer:
+Unregistered customers may be able to purchase data bundles because the program does not check whether they are registered.
+
+Question 3:
+Answer:
+
+switch is suitable for bundle selection because it checks different bundle codes and assigns the correct data allowance and price. if/else is suitable for eligibility because it checks different conditions to decide whether a customer can purchase a bundle.
+
